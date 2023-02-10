@@ -1,2 +1,2 @@
 # deck-of-cards
-A Python class for managing a deck of standard playing cards.
+A collection of Python classes for managing a deck of standard playing cards.
