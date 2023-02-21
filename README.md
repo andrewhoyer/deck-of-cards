@@ -3,9 +3,9 @@ A collection of Python classes for managing a deck of standard playing cards.
 
 ## Examples
 
-### Creating a Deck
+### Deck
 
-When you create a deck, it automatically creates an array of cards.
+#### Creating a Deck
 
 ```python
 import deck
@@ -13,36 +13,76 @@ import deck
 game_deck = deck.Deck()
 ```
 
-The array of cards can be accessed using the deck variable.
+When you create a deck, it automatically creates a list of standard playing cards.
 
-### Shuffling the Deck
+#### Accessing the deck
 
-The deck can be shuffled at any time and will work with any number of cards, in the case where some have been removed from the deck.
+The deck can be accessed either as a whole, or by individual card.
+
+To retrieve the entire deck, use:
+
+```python
+game_deck.get_all_cards()
+```
+
+For example, to output all of the cards in order:
+
+```python
+for card in game_deck.get_all_cards():
+print(card.get_name('symbol'))
+```
+
+To output the name of the card at the top of the deck, access just one card:
+
+```python
+card = game_deck.get_card(1)
+print(card.get_name('phrase'))
+```
+
+
+#### Shuffling the Deck
+
+The deck can be shuffled at any time and will work with any number of cards, including the case where some cards have been removed from the deck.
 
 ```python
 game_deck.shuffle()
 ```
 
-### Card details
+### Card
 
-Each card object in the deck has the following pieces of information:
+Each card object can provide information about its suit and label.
 
-- suit, a single character string (H, S, D, or C)
-- label, a single character string (A, 2, 3 ... J, Q, K)
-- suit_word, a string name for the suit (hearts, clubs)
-- labelword, a string name for the label (ace, three, king)
+#### Card Suit
 
-To get the suit of the first card in the deck:
+To get the single character string for the suit (H, S, D, or C) of a card:
 
 ```python
-print(game_deck.deck[0].suit)
+card.get_suit()
 ```
 
-### Card name
+To get the string name (hearts, clubs) for the suit of a card:
+
+```python
+card.get_suit_word()
+```
+
+#### Card Label
+
+To get the single character string for the label (A, 2, 3 ... J, Q, K) of a card:
+
+```python
+card.get_label()
+```
+
+To get the string name (ace, three, king) for the label of a card:
+
+```python
+card.get_label_word()
+```
+
+#### Card name
 
 A card can return a description of the suit and label in a number of formats.
-
-card.name(<format>)
 
 Format options:
 
@@ -51,5 +91,5 @@ Format options:
 - 'phrase', a string containing the label and suit in a phrase (king of hearts)
 
 ```python
-print(game_deck.deck[0].name('phrase'))
+print(card.get_name('phrase'))
 ```

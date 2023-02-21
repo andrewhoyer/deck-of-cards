@@ -4,13 +4,13 @@ import random
 class Deck:
 
 	def reset_deck(self, labels, suits):
-  		deck = []
+		deck = []
+		
+		for suit in suits:
+			for label in labels:
+				deck.append(card.Card(label, suit))
   		
-  		for suit in suits:
-  			for label in labels:
-  				deck.append(card.Card(label, suit))
-  		
-  		return deck
+		return deck
 	
 	
 	def __init__(self):
@@ -21,3 +21,16 @@ class Deck:
 	
 	def shuffle(self):
 		random.shuffle(self.deck)
+	
+	def get_all_cards(self):
+		return self.deck
+
+	def get_card(self, position):
+		'''returns a Card object. position 1 is the top card on the deck.'''
+
+		if position > 0 and position <= len(self.deck):
+			return self.deck[position - 1]
+		else:
+			return False
+
+

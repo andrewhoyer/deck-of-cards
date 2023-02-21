@@ -5,7 +5,8 @@ class Card:
 		self.label_word = ''
 		self.suit  = suit
 		self.suit_word = ''
-
+		self.color = ''
+		
 		if suit == 'C' or suit == 'S':
 			self.color = 'black'
 		elif suit == 'H' or suit == 'D':
@@ -53,28 +54,28 @@ class Card:
 			self.label_word = 'king'
 	
 	
-	def name(self, format):
+	def get_name(self, format):
 		if format == 'text':
-			return self.label + self.suit
+			return self.get_label() + self.get_suit()
 			
 		elif format == 'symbol':
-			return self.label + self.symbol(self.suit)
+			return self.get_label() + self.get_symbol()
 			
 		elif format == 'phrase':
 			return "{} of {}".format(self.get_label_word(), self.get_suit_word())
 			
 		else:
-			return self.label + self.suit
+			return self.get_label() + self.get_suit()
 
 
-	def symbol(self, suit):
-		if suit == 'H':
+	def get_symbol(self):
+		if self.suit == 'H':
 			return '♡'
-		elif suit == 'S':
+		elif self.suit == 'S':
 			return '♤'
-		elif suit == 'D':
+		elif self.suit == 'D':
 			return '♢'
-		elif suit == 'C':
+		elif self.suit == 'C':
 			return '♧'
 		else:
 			return ''
@@ -85,3 +86,14 @@ class Card:
 	def get_suit_word(self):
 		return self.suit_word
 
+	def get_label(self):
+		return self.label
+	
+	def get_suit(self):
+		return self.suit
+
+	def get_color(self):
+		return self.color
+
+	def is_face_card(self):
+		return self.face
