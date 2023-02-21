@@ -29,7 +29,7 @@ For example, to output all of the cards in order:
 
 ```python
 for card in game_deck.get_all_cards():
-print(card.get_name('symbol'))
+    print(card.get_name('symbol'))
 ```
 
 To output the name of the card at the top of the deck, access just one card:
