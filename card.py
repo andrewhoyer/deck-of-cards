@@ -1,10 +1,12 @@
 class Card:
 
-	def __init__(self, label, suit):
+	def __init__(self, label, suit, deck_rank, suit_rank):
 		self.label = label
 		self.label_word = ''
 		self.suit  = suit
 		self.suit_word = ''
+		self.deck_rank = deck_rank
+		self.suit_rank = suit_rank
 		self.color = ''
 		
 		if suit == 'C' or suit == 'S':
@@ -85,6 +87,12 @@ class Card:
 	
 	def get_suit_word(self):
 		return self.suit_word
+	
+	def get_deck_rank(self):
+		return self.deck_rank
+	
+	def get_suit_rank(self):
+		return self.suit_rank
 
 	def get_label(self):
 		return self.label
